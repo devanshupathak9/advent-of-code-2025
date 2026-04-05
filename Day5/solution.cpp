@@ -47,7 +47,7 @@ bool checkRange(vector<pair<ll, ll>> &mergedIngredientRange, ll ingredient) {
     }
     return false;
 }
-
+c
 class Solution {
 private:
     vector<pair<ll, ll>> ingRange;
