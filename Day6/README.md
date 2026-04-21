@@ -29,7 +29,9 @@ To check their work, cephalopod students are given the grand total of adding tog
 
 Of course, the actual worksheet is much wider. You'll need to make sure to unroll it completely so that you can read the problems clearly.
 
-Solve the problems on the math worksheet. What is the grand total found by adding together all of the answers to the individual problems?
+Solve the problems on the math worksheet. **What is the grand total found by adding together all of the answers to the individual problems?**
+
+Answer: **7326876294741**
 <hr>
 
 ### Part: 2
@@ -56,4 +58,8 @@ Finally, the leftmost problem is 356 * 24 * 1 = 8544
 Now, the grand total is 1058 + 3253600 + 625 + 8544 = 3263827.
 ```
 
-Solve the problems on the math worksheet again. What is the grand total found by adding together all of the answers to the individual problems?
+Solve the problems on the math worksheet again. **What is the grand total found by adding together all of the answers to the individual problems?**
+
+Answer: **10756006415204**
+
+---
