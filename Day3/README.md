@@ -1,13 +1,14 @@
 ## Day 3: Lobby
 
 ### Part 1
-You descend a short staircase, enter the surprisingly vast lobby, and are quickly cleared by the security checkpoint. When you get to the main elevators, however, you discover that each one has a red light above it: they're all offline.
+
+---
+
+You descend a short staircase, enter the surprisingly vast lobby, and are quickly cleared by the security checkpoint. When you get to the main elevators, however, you discover that each one has a red light above it: they're all **offline**.
 
 "Sorry about that," an Elf apologizes as she tinkers with a nearby control panel. "Some kind of electrical surge seems to have fried them. I'll try to get them online soon."
 
-You explain your need to get further underground. 
-
-"Well, you could at least take the escalator down to the printing department, not that you'd get much further than that without the elevators working. That is, you could if the escalator weren't also offline."
+You explain your need to get further underground. "Well, you could at least take the escalator down to the printing department, not that you'd get much further than that without the elevators working. That is, you could if the escalator weren't also offline."
 
 "But, don't worry! It's not fried; it just needs power. Maybe you can get it running while I keep working on the elevators."
 
@@ -39,22 +40,18 @@ There are many batteries in front of you (data.txt). **Find the maximum joltage 
 
 Answer: **17207**
 
+---
+
 ### Part 2
 
-#### The Challenge
+---
+The escalator doesn't move. The Elf explains that it probably needs more joltage to overcome the static friction of the system and hits the big red "joltage limit safety override" button. You lose count of the number of times she needs to confirm "yes, I'm sure" and decorate the lobby a bit while you wait.
 
-The escalator remains stationary. The Elf explains that it likely requires more joltage to overcome the static friction of the system. She presses the big red "joltage limit safety override" button, repeatedly confirming "yes, I'm sure" while you wait and decorate the lobby.
+Now, you need to make the largest joltage by turning on exactly twelve batteries within each bank.
 
-Your task now is to generate the largest joltage by activating exactly **twelve batteries** within each bank.
+The joltage output for the bank is still the number formed by the digits of the batteries you've turned on; the only difference is that now there will be 12 digits in each bank's joltage output instead of two.
 
-#### Rules
-
-- The joltage output for the bank is the number formed by the digits of the twelve batteries you activate.
-- You must select exactly twelve batteries from each bank to maximize the joltage.
-
-#### Example
-
-Given the same input as before:
+Consider again the example from before:
 
 ```
 987654321111111
@@ -63,21 +60,19 @@ Given the same input as before:
 818181911112111
 ```
 
-The largest joltages for each bank are:
+Now, the joltages are much larger:
 
-- From `987654321111111`, activate all digits except some `1`s at the end to produce `987654321111`.
-- From `811111111111119`, activate all digits except some `1`s to produce `811111111119`.
-- From `234234234234278`, activate all digits except a `2`, a `3`, and another `2` near the start to produce `434234234278`.
-- From `818181911112111`, activate all digits except some `1`s near the front to produce `888911112111`.
-
-#### Total Output Joltage
-
-The total output joltage is the sum of the largest joltages from each bank:
+- In 987654321111111, the largest joltage can be found by turning on everything except some 1s at the end to produce 987654321111.
+- In the digit sequence 811111111111119, the largest joltage can be found by turning on everything except some 1s, producing 811111111119.
+- In 234234234234278, the largest joltage can be found by turning on everything except a 2 battery, a 3 battery, and another 2 battery near the start to produce 434234234278.
+- In 818181911112111, the joltage 888911112111 is produced by turning on everything except some 1s near the front.
 
 ```
-987654321111 + 811111111119 + 434234234278 + 888911112111 = 3121910778619
+The total output joltage is now much larger: 987654321111 + 811111111119 + 434234234278 + 888911112111 = 3121910778619.
 ```
 
-**What is the new total output joltage?(data.txt)**
+**What is the new total output joltage? (data.txt)**
 
 Answer: **170997883706617**
+
+---

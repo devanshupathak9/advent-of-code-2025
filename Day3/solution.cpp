@@ -9,83 +9,78 @@ void print(T &value) {
     cout << value << "\n";
 }
 
-int findLargestIndex(string line, int start, int end)
-{
-    int maxValIndex = -1;
-    int maxVal = -1;
-    int n = line.size();
-    for (int i = start; i <= end; i++)
-    {
-        int val = line[i] - '0';
-        if (val > maxVal)
-        {
-            maxVal = val;
-            maxValIndex = i;
-        }
-    }
-    return maxValIndex;
+template <typename T>
+void print_vector(vector<T> &value) {
+    for (auto val : value)
+        cout << val << " ";
+    print("");
 }
 
-class Solution
-{
-public:
-    int solvep1(vector<string> &banks)
-    {
-        int totalOutput = 0;
-        int indx, currIndex, maxJoltage;
-        int n = banks[0].size();
-        for (auto it : banks)
-        {
-            maxJoltage = 0;
-            currIndex = -1;
-            for (int size = 0; size < 2; size++)
-            {
-                indx = findLargestIndex(it, currIndex + 1, n - 2 + size);
-                currIndex = indx;
-                maxJoltage = maxJoltage * 10 + (it[indx] - '0');
-            }
-            totalOutput += maxJoltage;
+int findLargestIndex(string bank, int start, int end) {
+    int maxVal = 0;
+    int indx;
+    for (int i = start; i < end; i++) {
+        int val = bank[i] - '0';
+        if (val > maxVal) {
+            indx = i;
+            maxVal = val;
         }
-        return totalOutput;
+    }
+    return indx;
+}
+
+class Solution {
+public:
+    int solve(vector<string> &banks) {
+        int totalJoltage = 0;
+        int indx, start;
+        string maxJoltage;
+        for (auto bank : banks) {
+            start = 0;
+            maxJoltage = "";
+            for (int i = 0; i < 2; i++) {
+                indx = findLargestIndex(bank, start, bank.size() - 1 + i);
+                maxJoltage += bank[indx];
+                start = indx + 1;
+            }
+            totalJoltage += stoi(maxJoltage);
+        }
+        return totalJoltage;
     }
 
-    ll solvep2(vector<string> &banks)
-    {
-        int n = banks[0].size();
-        ll totalOutput = 0;
-        ll maxJoltage;
-        int indx, currIndex;
-        for (auto it : banks)
-        {
-            maxJoltage = 0;
-            currIndex = -1;
-            for (int size = 0; size < 12; size++)
-            {
-                indx = findLargestIndex(it, currIndex + 1, n - 12 + size);
-                currIndex = indx;
-                maxJoltage = maxJoltage * 10 + (it[indx] - '0');
+    ll solvep2(vector<string> &banks) {
+        ll totalJoltage = 0;
+        int indx, start;
+        string maxJoltage;
+        for (auto bank : banks) {
+            start = 0;
+            maxJoltage = "";
+            for (int i = 0; i < 12; i++) {
+                indx = findLargestIndex(bank, start, bank.size() - 11 + i);
+                maxJoltage += bank[indx];
+                start = indx + 1;
             }
-            totalOutput += maxJoltage;
+            totalJoltage += stoll(maxJoltage);
         }
-        return totalOutput;
+        return totalJoltage;
     }
 };
 
-int main()
-{
-    ifstream file("data.txt");
+int main() {
     string line;
     vector<string> banks;
-    while (getline(file, line))
-    {
+
+    ifstream file("data.txt");
+    while (getline(file, line)) {
         banks.push_back(line);
     }
 
     Solution sol;
-    int res1 = sol.solvep1(banks);
+    int res1 = sol.solve(banks);
     print(res1);
 
     ll res2 = sol.solvep2(banks);
     print(res2);
+
     return 0;
 }
